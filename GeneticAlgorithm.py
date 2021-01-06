@@ -252,15 +252,11 @@ class GeneticAlgorithmTSP(object):
 def visualize(points):
     import matplotlib.pyplot as plt
     plt.figure(1)
-    plt.ion()
     plt.plot(points[:, 1], points[:, 2], "o")
     iter = 0
     while True:
         if iter >= points[:, 0].size - 1:
-            plt.pause(2)
-            plt.clf()
-            plt.plot(points[:, 1], points[:, 2], "o")
-            iter = 0
+            break
         else:
             plt.plot(
                 [points[iter, 1], points[iter + 1, 1]],
@@ -271,7 +267,6 @@ def visualize(points):
                 mec="b",
                 mfc="w",
             )
-            plt.pause(0.1)
             iter += 1
 
 
